@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import { Mic, MicOff, Video, VideoOff, PhoneOff } from "lucide-react";
 
-const socket = io("https://conferencely-server.vercel.app/", {
+const socket = io("https://conferencely-server.onrender.com", {
   transports: ["websocket"],
 });
 
