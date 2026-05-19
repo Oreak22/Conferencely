@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 import { Mic, MicOff, Video, VideoOff, PhoneOff } from "lucide-react";
 
-const socket = io("http://10.40.45.103:5000", { transports: ["websocket"] });
+const socket = io("https://conferencely-server.vercel.app/", {
+  transports: ["websocket"],
+});
 
 export default function App() {
   const [roomId, setRoomId] = useState("conference-room");
@@ -61,7 +63,7 @@ export default function App() {
       peerConnection.current.addTrack(track, localStream.current);
     });
   };
-  
+
   const joinRoom = async () => {
     localStream.current = await navigator.mediaDevices.getUserMedia({
       video: {
@@ -108,8 +110,7 @@ export default function App() {
     localStream.current?.getTracks().forEach((t) => t.stop());
     window.location.reload();
   };
-  const testing = () => {
-  };
+  const testing = () => {};
 
   return (
     <div className="min-h-screen bg-zinc-950 text-white p-6">
@@ -131,7 +132,9 @@ export default function App() {
               >
                 Join Room
               </button>
-              <button onClick={testing} className="bg-red-700">test</button>
+              <button onClick={testing} className="bg-red-700">
+                test
+              </button>
             </div>
           )}
         </div>
