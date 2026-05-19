@@ -132,9 +132,6 @@ export default function App() {
               >
                 Join Room
               </button>
-              <button onClick={testing} className="bg-red-700">
-                test
-              </button>
             </div>
           )}
         </div>
